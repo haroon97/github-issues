@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { thunkActionCreator } from './actions/actions';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import IssueLoader from './Loader';
 
 class Issues extends Component {
 
@@ -11,8 +12,7 @@ class Issues extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Hello React</h1>
-        {console.log(this.props.issues)}
+        {this.props.issues !== undefined && this.props.issues.isFetching ? <IssueLoader className='loader'/> : null}
       </div>
     );
   }
