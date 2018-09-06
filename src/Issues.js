@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { thunkActionCreator } from './actions/actions';
 import { connect } from 'react-redux';
 import IssueLoader from './Loader';
+import IssuesList from './IssuesList';
 
 class Issues extends Component {
 
@@ -12,7 +13,9 @@ class Issues extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.issues !== undefined && this.props.issues.isFetching ? <IssueLoader className='loader'/> : null}
+        {this.props.issue !== undefined && this.props.issue.isFetching ? <IssueLoader className='loader'/> : null}
+        {this.props.issue !== undefined && this.props.issue.isFetched ? 
+          this.props.issue.issues.map((issue) => <IssuesList data={issue}/>) : null}
       </div>
     );
   }
@@ -20,7 +23,7 @@ class Issues extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    issues: state
+    issue: state
   }
 }
 
