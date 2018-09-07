@@ -13,7 +13,6 @@ class Issues extends React.Component {
   render() {
     return (
       <div className="App">
-        {console.log(this.props.issue)}
         {this.props.issue !== undefined && this.props.issue.isFetching ? <IssueLoader className='loader'/> : null}
         {this.props.issue !== undefined && this.props.issue.isFetched ? 
           this.props.issue.issues.map((issue) => <IssuesList data={issue} key={issue.id}/>) : null}

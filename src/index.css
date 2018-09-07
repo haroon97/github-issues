@@ -4,6 +4,10 @@ body {
   font-family: sans-serif;
 }
 
-.loader {
-  margin-top: 20em;
+.load {
+  margin-top: 18em;
+}
+
+.list {
+  margin-top: 1em; 
 }
