@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { thunkActionCreator } from './actions/actions';
 import { connect } from 'react-redux';
 import IssueLoader from './Loader';
-import IssuesList from './IssuesList';
+import  IssuesList from './IssuesList';
 
-class Issues extends Component {
+class Issues extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(thunkActionCreator());
@@ -13,9 +13,10 @@ class Issues extends Component {
   render() {
     return (
       <div className="App">
+        {console.log(this.props.issue)}
         {this.props.issue !== undefined && this.props.issue.isFetching ? <IssueLoader className='loader'/> : null}
         {this.props.issue !== undefined && this.props.issue.isFetched ? 
-          this.props.issue.issues.map((issue) => <IssuesList data={issue}/>) : null}
+          this.props.issue.issues.map((issue) => <IssuesList data={issue} key={issue.id}/>) : null}
       </div>
     );
   }
