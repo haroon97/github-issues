@@ -1,6 +1,5 @@
 import React from 'react';
-import {Image, List, Icon} from 'semantic-ui-react';
-import { connect } from 'react-redux';
+import {Image, List, Icon, Segment} from 'semantic-ui-react';
 
 export default class IssuesList extends React.Component {
   render() { 
@@ -12,13 +11,11 @@ export default class IssuesList extends React.Component {
           <List.Content>
             <List.Header>{this.props.data.title}</List.Header>
             {this.props.data.comments} <Icon name='comment'/>
-            created At: {this.props.data.created_at}<br />
-            Author: {this.props.data.user.login}<br />
-            Status: {this.props.data.state}
+            #{this.props.data.number} opened at {this.props.data.created_at} by {this.props.data.user.login}
           </List.Content>
         </List.Item>    
         </List>
-        </div>
+      </div>
     );
   };
 };

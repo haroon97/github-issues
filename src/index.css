@@ -9,5 +9,14 @@ body {
 }
 
 .list {
-  margin-top: 1em; 
+  margin-top: 1.5em;
+  margin-left: 23em;
+  width: 100%;
+  display: flex; 
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
 }
